@@ -1,0 +1,163 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #31c3dd;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    color: #3b9fb8;
+  }
+  
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  /* Razas */
+  .raza {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .raza-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .raza-info {
+    flex: 1;
+  }
+  
+  .raza-info h3 {
+    color: #31c3dd;
+    font-size: 1.5rem;
+  }
+  
+  .raza-info ul {
+    margin-top: 10px;
+  }
+  
+  /* Galería */
+  .galeria {
+    margin-top: 20px;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Formulario de Registro */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"], select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #31c3dd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #27648d;
+  }
+  
+  /* Registros de Mascotas */
+  .registro-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .registro-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .registro-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .registro-item h4 {
+    color: #31c3dd;
+  }
+  
+  button {
+    background-color: #ff6347;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #e55347;
+  }
+  
+  /* Pie de página */
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #31c3dd;
+    color: white;
+    margin-top: 30px;
+  }
+  

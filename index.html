@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Mascotas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>🐾 Perfil de Mascotas 🐾</h1>
+    <p>¡Bienvenido al lugar ideal para los amantes de los perros y gatos!</p>
+  </header>
+
+  <!-- Sección Razas Populares de Perros -->
+  <section>
+    <h2>🐕 Razas Populares de Perros</h2>
+    <ul>
+      <li>
+        <div class="raza">
+          <img src="/img/labrador.jpg" alt="Golden Retriever" class="raza-img">
+          <div class="raza-info">
+            <h3>Golden Retriever</h3>
+            <p>Los Golden Retrievers son conocidos por su amigable personalidad y su habilidad para trabajar como perros guías o de terapia. Son muy leales, inteligentes y de tamaño mediano-grande.</p>
+            <ul>
+              <li><strong>Características:</strong> Pelaje dorado, orejas caídas, cola espesa.</li>
+              <li><strong>Personalidad:</strong> Amistosos, inteligentes, muy activos.</li>
+              <li><strong>Cuidados:</strong> Necesitan ejercicio diario y un cepillado regular.</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+  
+  <!-- Sección Razas Populares de Gatos -->
+  <section>
+    <h2>🐈 Razas Populares de Gatos</h2>
+    <ul>
+      <li>
+        <div class="raza">
+          <img src="/img/persa.jpg" alt="Gato Persa" class="raza-img">
+          <div class="raza-info">
+            <h3>Persa</h3>
+            <p>El gato Persa es conocido por su pelaje largo y su personalidad tranquila. Son ideales para personas que buscan una mascota relajada y cariñosa.</p>
+            <ul>
+              <li><strong>Características:</strong> Pelaje largo, cara plana, ojos grandes.</li>
+              <li><strong>Personalidad:</strong> Tranquilos, afectuosos, perezosos.</li>
+              <li><strong>Cuidados:</strong> Requieren un cepillado regular debido a su largo pelaje.</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Sección Galería de imágenes -->
+  <section class="galeria">
+    <h2>🐾 Galería de Mascotas</h2>
+    <div class="gallery">
+      <img src="/img/1.jpg" alt="Mascota 1">
+      <img src="/img/2.jpg" alt="Mascota 2">
+      <img src="/img/3.jpg" alt="Mascota 3">
+      <img src="/img/4.jpg" alt="Mascota 4">
+      <img src="/img/5.jpg" alt="Mascota 5">
+      <img src="/img/6.jpg" alt="Mascota 6">
+      <img src="/img/7.jpg" alt="Mascota 7">
+      <img src="/img/8.jpg" alt="Mascota 8">
+    </div>
+  </section>
+
+  <!-- Sección Formulario de Registro -->
+  <section class="registro">
+    <h2>📋 Registra a tu Mascota!</h2>
+    <form id="formularioRegistro">
+      <label for="nombreMascota">Nombre de tu mascota:</label>
+      <input type="text" id="nombreMascota" name="nombreMascota" placeholder="Ej: Michi" required>
+    
+      <label for="tipoMascota">Tipo de mascota:</label>
+      <select id="tipoMascota" name="tipoMascota" required>
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+      </select>
+    
+      <label for="imagenMascota">Imagen de la mascota:</label>
+      <input type="file" id="imagenMascota" name="imagenMascota" accept="image/png, image/jpeg" required>
+    
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
+
+  <!-- Sección de Registros de Mascotas -->
+  <section>
+    <h2>📋 Registros de Mascotas</h2>
+    <ul id="listaRegistros" class="registro-lista"></ul>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 Perfil de Mascotas. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace JS -->
+  <script src="script.js"></script>
+</body>
+</html>
