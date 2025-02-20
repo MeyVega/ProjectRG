@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Buscador de Películas</title>
+</head>
+<body>
+
+    <h2>Busca tu película favorita! </h2>
+    <input type="text" id="movieInput" placeholder="Ingrese el nombre de la película">
+    <button id="searchButton">Buscar</button>
+
+    <div id="movieCard" class="movie-card" style="display: none;">
+        <h3 id="movieTitle"></h3>
+        <img id="moviePoster" src="" alt="Poster de la película">
+        <p><strong>Año:</strong> <span id="movieYear"></span></p>
+        <p><strong>Género:</strong> <span id="movieGenre"></span></p>
+        <p><strong>Director:</strong> <span id="movieDirector"></span></p>
+        <p><strong>Trama:</strong> <span id="moviePlot"></span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

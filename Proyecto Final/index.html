@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramo de Sueños</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/Proyecto Final/img/Icon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Header con imagen de fondo mejorada -->
+  <header>
+    <div class="header-content">
+      <h1>🌸 Ramo de Sueños 🌸</h1>
+      <p>Tu floristería de confianza</p>
+    </div>
+  </header>
+  
+  <!-- Menú de navegación fijo y mejorado -->
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#flores">Nuestras Flores</a></li>
+      <li><a href="#solicitud">Solicitar Disponibilidad</a></li>
+      <li><a href="#agregar-flor">Vender Tus Flores</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <!-- Sección de Galería Mejorada -->
+    <section id="flores">
+      <h2 class="nuestras-flores">🌺 Nuestras Flores 🌺</h2>
+      <p class="descripcion-flores">Descubre nuestra exclusiva selección de flores frescas y vibrantes, perfectas para cualquier ocasión. Desde rosas elegantes hasta tulipanes coloridos, cada flor está cuidadosamente seleccionada para garantizar la mejor calidad y belleza.</p>
+      <div class="carrusel">
+        <button class="carrusel-btn anterior" onclick="moverCarrusel(-1)">&#10094;</button>
+        <div class="carrusel-contenedor" id="carruselContenedor"></div>
+        <button class="carrusel-btn siguiente" onclick="moverCarrusel(1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Formulario para solicitar disponibilidad -->
+    <section id="solicitud">
+      <h2 class="solicitud">📜 Solicitar Disponibilidad 📜</h2>
+      <div class="formulario-contenedor">
+        <img src="/Proyecto Final/img/decorativa2.jpg" alt="Imagen decorativa" class="imagen-formulario">
+        <form id="solicitudForm">
+          <label for="nombreCliente">Nombre:</label>
+          <input type="text" id="nombreCliente" required>
+  
+          <label for="emailCliente">Email:</label>
+          <input type="email" id="emailCliente" required>
+  
+          <label for="florSolicitada">Flor Solicitada:</label>
+          <select id="florSolicitada" required></select>
+  
+          <button type="submit">🌼 Enviar Solicitud 🌼</button>
+        </form>
+      </div>
+    </section> 
+  
+    <!-- Formulario para que los usuarios agreguen sus flores -->
+    <section id="agregar-flor">
+      <h2 class="vende">🌻 Vende Tus Flores 🌻</h2>
+      <p class="pvende">¿Tienes flores para vender? ¡Agrégalas aquí!</p>
+      <div class="formulario-contenedor">
+        <img src="/Proyecto Final/img/decorativa1.jpg" alt="Imagen decorativa" class="imagen-formulario">
+        <form id="agregarFlorForm">
+          <label for="nombreFlor">Nombre de la Flor:</label>
+          <input type="text" id="nombreFlor" required>
+  
+          <label for="precioFlor">Precio:</label>
+          <input type="number" id="precioFlor" required>
+  
+          <label for="imagenFlor">URL de la Imagen:</label>
+          <input type="text" id="imagenFlor" required>
+  
+          <label for="disponibilidadFlor">Disponibilidad:</label>
+          <select id="disponibilidadFlor" required>
+            <option value="Disponible">Disponible</option>
+            <option value="Agotado">Agotado</option>
+          </select>
+  
+          <button type="submit">🌷 Agregar Flor 🌷</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer mejorado -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ramo de Sueños</p>
+      <p>Contacto: info@ramodesueños.com | Tel: +123 456 789</p>
+      <p>Síguenos en redes sociales:</p>
+      <ul class="social-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

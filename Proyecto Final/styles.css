@@ -1,0 +1,580 @@
+ /* Estilos generales */
+ body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header con imagen de fondo */
+header {
+  background-image: url(img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh; /* Ajusta la altura según necesidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Capa de superposición oscura para mejorar la legibilidad */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Más sutil pero efectiva */
+  z-index: 1;
+}
+
+/* Contenido del header */
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 80%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Estilos del título */
+.header-content h1 {
+  margin: 0;
+  font-size: 4em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  animation: slideIn 1.2s ease-in-out;
+}
+
+/* Estilos del subtítulo */
+.header-content p {
+  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animaciones para darle más vida al header */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+section {
+  padding-top: 100px; /* Ajusta según la altura del nav */
+  scroll-margin-top: 100px; /* Corrige el desplazamiento anclado */
+}
+
+
+/* formularios */
+
+.solicitud {
+  text-align: center;
+  font-size: 2.2em;
+  color: #4a90e2;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+solicitud:hover {
+  color: #357ABD;
+  transform: scale(1.05);
+}
+
+.vende {
+  text-align: center;
+  font-size: 2.2em;
+  color: #e67e22; /* Naranja cálido */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.vende:hover {
+  color: #d35400; /* Naranja más oscuro al pasar el mouse */
+  transform: scale(1.05);
+}
+
+.pvende{
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 15px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+
+.formulario-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.imagen-formulario {
+  width: 100%; /* Se ajusta al ancho del contenedor */
+  max-width: 400px; /* Un poco más grande si el formulario es amplio */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+}
+form {
+  flex: 1;
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Formularios id */
+
+#solicitudForm {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para las etiquetas */
+#solicitudForm label {
+  font-size: 1.1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos para los inputs y select */
+#solicitudForm input,
+#solicitudForm select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al enfocar los inputs */
+#solicitudForm input:focus,
+#solicitudForm select:focus {
+  border-color: #3498db;
+  box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+/* Estilos para el botón */
+#solicitudForm button {
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Efecto hover en el botón */
+#solicitudForm button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+/* Contenedor del formulario */
+#agregarFlorForm {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para las etiquetas */
+#agregarFlorForm label {
+  font-size: 1.1em;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos para los inputs y select */
+#agregarFlorForm input,
+#agregarFlorForm select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al enfocar los inputs */
+#agregarFlorForm input:focus,
+#agregarFlorForm select:focus {
+  border-color: #e67e22;
+  box-shadow: 0px 0px 5px rgba(230, 126, 34, 0.5);
+  outline: none;
+}
+
+/* Estilos para el botón */
+#agregarFlorForm button {
+  background-color: #e67e22;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Efecto hover en el botón */
+#agregarFlorForm button:hover {
+  background-color: #d35400;
+  transform: scale(1.05);
+}
+
+/* Nav y Carrousel */ 
+
+/* Menú de navegación */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to right, rgba(168, 230, 207, 0.95), rgba(135, 199, 185, 0.95)); 
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a.active, nav ul li a:hover {
+  color: #fff;
+  background-color: #87c7b9;
+  transform: translateY(-2px);
+}
+
+/* Estilos del carrusel mejorado */
+
+/* Estilos generales de la sección */
+#flores {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff7f7; /* Suave rosa pastel */
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* Título y descripción */
+.nuestras-flores {
+  font-size: 2em;
+  color: #d63384; /* Rosa vibrante */
+  margin-bottom: 10px;
+}
+
+.descripcion-flores {
+  font-size: 1.2em;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+/* Contenedor del carrusel */
+.carrusel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para las tarjetas de flores */
+.carrusel-contenedor {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Tarjeta "Próximamente" */
+.carrusel-item:last-child {
+  background-color: #f8e1e7; /* Color más suave */
+  font-style: italic;
+  text-align: center;
+}
+
+.carrusel-item:last-child h3 {
+  color: #d63384; /* Rosa vibrante */
+}
+
+.carrusel-item:last-child p {
+  color: #666;
+}
+
+/* Botones deshabilitados */
+.carrusel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carrusel-item {
+  min-width: 300px;
+  background: #f4c2c2; /* Color de la marca */
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carrusel-item:hover {
+  transform: scale(1.05);
+}
+
+.carrusel-item img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones del carrusel */
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-size: 1.5em;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+.carrusel-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.anterior {
+  left: 10px;
+}
+
+.siguiente {
+  right: 10px;
+}
+
+/* Botones principales mejorados */
+button {
+  background: linear-gradient(to right, #a8e6cf, #87c7b9);
+  color: #333;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  font-size: 1em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+  background: linear-gradient(to right, #87c7b9, #5aa897);
+  transform: scale(1.05);
+  color: white;
+}
+
+/* Estilos para el Footer */
+footer {
+  background-color: #a8e6cf; 
+  padding: 30px 20px;
+  text-align: center;
+  color: #333;
+  margin-top: 40px;
+  border-top: 5px solid #87c7b9; 
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* Estilos para los enlaces de redes sociales */
+.social-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-links li {
+  display: inline-block;
+}
+
+.social-links li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #f06292; 
+  transform: scale(1.1);
+}
+
+/* Efecto de animación en la carga del footer */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+footer {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Media Queries para la adaptación a móviles */
+@media (max-width: 768px) {
+  header {
+    min-height: 40vh;
+  }
+
+  .header-content h1 {
+    font-size: 2.2em;
+  }
+
+  .header-content p {
+    font-size: 1.1em;
+  }
+
+  nav ul li a {
+    font-size: 1em;
+  }
+
+  .formulario-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagen-formulario {
+    max-width: 80%;
+    border-radius: 10px;
+  }
+
+  .carrusel-item {
+    min-width: 260px;
+  }
+
+  .carrusel-item h3 {
+    font-size: 1.2em;
+  }
+
+  .carrusel-item p {
+    font-size: 1em;
+  }
+
+  .carrusel-btn {
+    font-size: 1.3em;
+    padding: 10px 14px;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.9em;
+  }
+
+  .footer-content p {
+    font-size: 1em;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .social-links li a {
+    font-size: 1.2em;
+    width: 35px;
+    height: 35px;
+  }
+}
+
