@@ -17,19 +17,25 @@ const carruselContenedor = document.getElementById("carruselContenedor");
 const btnAnterior = document.querySelector(".carrusel-btn.anterior");
 const btnSiguiente = document.querySelector(".carrusel-btn.siguiente");
 
+// Función para crear una tarjeta de flor
+function crearTarjetaFlor(flor) {
+  const card = document.createElement("div");
+  card.className = "carrusel-item";
+  card.innerHTML = `
+    <img src="${flor.imagen}" alt="${flor.nombre}">
+    <h3>${flor.nombre}</h3>
+    ${flor.precio ? `<p>Precio: $${flor.precio}</p>` : ""}
+    <p>Disponibilidad: ${flor.disponibilidad}</p>
+  `;
+  return card;
+}
+
 // Función para renderizar el carrusel
 function renderizarCarrusel() {
   carruselContenedor.innerHTML = ""; // Limpiar contenido
 
   floresEmpresa.forEach((flor) => {
-    const card = document.createElement("div");
-    card.className = "carrusel-item";
-    card.innerHTML = `
-      <img src="${flor.imagen}" alt="${flor.nombre}">
-      <h3>${flor.nombre}</h3>
-      <p>${flor.precio ? `Precio: $${flor.precio}` : ""}</p>
-      <p>Disponibilidad: ${flor.disponibilidad}</p>
-    `;
+    const card = crearTarjetaFlor(flor);
     carruselContenedor.appendChild(card);
   });
 
@@ -55,12 +61,9 @@ function moverCarrusel(direccion) {
 
 // Función para actualizar la posición del carrusel
 function actualizarCarrusel() {
-  carruselContenedor.style.transition = "transform 0.8s ease-in-out"; // Movimiento más lento
-  carruselContenedor.style.transform = `translateX(${-indiceCarrusel * 100}%)`;
-
-  // Ocultar/mostrar botones cuando sea necesario
-  btnAnterior.style.display = (indiceCarrusel === 0) ? "none" : "block";
-  btnSiguiente.style.display = (indiceCarrusel === floresTotal - 1) ? "none" : "block";
+  const anchoTarjeta = 100 / floresTotal; // Calcula el ancho de cada tarjeta en porcentaje
+  carruselContenedor.style.transition = "transform 0.5s ease-in-out";
+  carruselContenedor.style.transform = `translateX(${-indiceCarrusel * anchoTarjeta}%)`;
 }
 
 // Event Listeners para los botones
