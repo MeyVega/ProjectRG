@@ -1,76 +1,154 @@
-// Se define un array con una lista de flores
-let floresEmpresa = [
-  { nombre: "Rosa Roja", precio: 10, imagen: "/Proyecto Final/img/rosas.jpg", disponibilidad: "Disponible" },
-  { nombre: "Girasol", precio: 8, imagen: "/Proyecto Final/img/girasoles.jpg", disponibilidad: "Disponible" },
-  { nombre: "Tulipán", precio: 12, imagen: "/Proyecto Final/img/tulipanes.jpg", disponibilidad: "Agotado" },
-  { nombre: "Petunia", precio: 12, imagen: "/Proyecto Final/img/Petunias.jpg", disponibilidad: "Agotado" },
-  { nombre: "Hortensias", precio: 12, imagen: "/Proyecto Final/img/hortensias.jpg", disponibilidad: "Disponible" },
-  { nombre: "Orquídeas", precio: 12, imagen: "/Proyecto Final/img/orquideas.jpg", disponibilidad: "Agotado" },
-  { nombre: "Próximamente", precio: "", imagen: "/Proyecto Final/img/proximamente.jpg", disponibilidad: "Muy Pronto" } 
-];
+document.addEventListener("DOMContentLoaded", function () {
+  let floresEmpresa = [
+      { nombre: "Rosa Roja", precio: 10, imagen: "/Proyecto Final/img/rosas.jpg", disponibilidad: "Disponible" },
+      { nombre: "Girasol", precio: 8, imagen: "/Proyecto Final/img/girasoles.jpg", disponibilidad: "Disponible" },
+      { nombre: "Tulipán", precio: 12, imagen: "/Proyecto Final/img/tulipanes.jpg", disponibilidad: "Agotado" },
+      { nombre: "Petunia", precio: 12, imagen: "/Proyecto Final/img/Petunias.jpg", disponibilidad: "Agotado" },
+      { nombre: "Hortensias", precio: 12, imagen: "/Proyecto Final/img/hortensias.jpg", disponibilidad: "Disponible" },
+      { nombre: "Orquídeas", precio: 12, imagen: "/Proyecto Final/img/orquideas.jpg", disponibilidad: "Agotado" },
+      { nombre: "Próximamente", precio: "", imagen: "/Proyecto Final/img/proximamente.jpg", disponibilidad: "Muy Pronto" }
+  ];
 
-let indiceCarrusel = 0; // Controla la posicion en que va iniciar el carrusel, 0
-const floresTotal = floresEmpresa.length; // Guarda la cantidad de flores
+  let selectFlor = document.getElementById("florSolicitada");
 
-// Elementos del DOM, selecion de elementos html, getElementById y querySelector
-const carruselContenedor = document.getElementById("carruselContenedor");
-const btnAnterior = document.querySelector(".carrusel-btn.anterior");
-const btnSiguiente = document.querySelector(".carrusel-btn.siguiente");
-
-// Función para crear una tarjeta de flor
-function crearTarjetaFlor(flor) { // Genera una tarjeta con la informacion de flor como parametro
-  const card = document.createElement("div"); // Se crea un div dinamico con la clase carrusel-item
-  card.className = "carrusel-item";
-  card.innerHTML = `
-    <img src="${flor.imagen}" alt="${flor.nombre}">
-    <h3>${flor.nombre}</h3>
-    ${flor.precio ? `<p>Precio: $${flor.precio}</p>` : ""} 
-    <p>Disponibilidad: ${flor.disponibilidad}</p>
-  `;
-  return card;
-}
-
-// Función para renderizar el carrusel
-function renderizarCarrusel() {
-  carruselContenedor.innerHTML = ""; // Se vacia el contenido 
-
-  floresEmpresa.forEach((flor) => { // Se recorre el array de flores, se crean las tarjetas y se agregan al contenedor como una carta
-    const card = crearTarjetaFlor(flor);
-    carruselContenedor.appendChild(card);
-  });
-
-  // Ajustar tamaño del contenedor del carrusel
-  carruselContenedor.style.display = "flex";
-  carruselContenedor.style.transition = "transform 0.5s ease-in-out";
-
-  // Posicionar correctamente
-  actualizarCarrusel();
-}
-
-// Función para mover el carrusel
-function moverCarrusel(direccion) {
-  const anchoTarjeta = carruselContenedor.children[0].offsetWidth; // Ancho de una tarjeta
-
-  if (direccion === -1 && indiceCarrusel > 0) { // Movimiento derecha
-    indiceCarrusel--;
-  } else if (direccion === 1 && indiceCarrusel < floresTotal - 1) { // Movimiento izquierda
-    indiceCarrusel++;
-  } else {
-    return; 
+  if (!selectFlor) {
+      console.error("Error: No se encontró el elemento <select> con ID 'florSolicitada'");
+      return;
   }
 
-  actualizarCarrusel(anchoTarjeta);
-}
+  // Limpiar y agregar opción por defecto
+  selectFlor.innerHTML = '<option value="" disabled selected>Selecciona una flor</option>';
 
-// Función para actualizar la posición del carrusel
-function actualizarCarrusel() {
-  const anchoTarjeta = carruselContenedor.children[0].offsetWidth; // Ancho de una tarjeta
-  carruselContenedor.style.transform = `translateX(${-indiceCarrusel * anchoTarjeta}px)`;
-}
+  // Agregar TODAS las flores al select
+  floresEmpresa.forEach(flor => {
+      let option = document.createElement("option");
+      option.value = flor.nombre;
+      option.textContent = `${flor.nombre}`;
+      selectFlor.appendChild(option);
+  });
 
-// Event Listeners para los botones
-btnAnterior.addEventListener("click", () => moverCarrusel(-1));
-btnSiguiente.addEventListener("click", () => moverCarrusel(1));
+  // Confirmación al enviar el formulario de solicitud
+  let formularioSolicitud = document.getElementById("solicitudForm");
 
-// Iniciar el carrusel
-renderizarCarrusel();
+  if (formularioSolicitud) {
+      formularioSolicitud.addEventListener("submit", function (event) {
+          event.preventDefault(); // Evita el envío para mostrar el mensaje
+
+          let nombre = document.getElementById("nombreCliente").value;
+          let email = document.getElementById("emailCliente").value;
+          let flor = selectFlor.value;
+
+          if (!flor) {
+              alert("Por favor, selecciona una flor antes de enviar la solicitud.");
+              return;
+          }
+
+          alert(`¡Gracias, ${nombre}! Hemos recibido tu solicitud para la flor ${flor}. Te contactaremos en ${email}.`);
+
+          this.reset();
+      });
+  } else {
+      console.error("Error: No se encontró el formulario con ID 'solicitudForm'");
+  }
+
+  // ---------------------------- Agregar Nueva Flor ----------------------------
+
+  let formularioAgregarFlor = document.getElementById("agregarFlorForm");
+
+  if (formularioAgregarFlor) {
+      formularioAgregarFlor.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let nombreFlor = document.getElementById("nombreFlor").value;
+          let precioFlor = document.getElementById("precioFlor").value;
+          let imagenFlor = document.getElementById("imagenFlor").value;
+          let disponibilidadFlor = document.getElementById("disponibilidadFlor").value;
+
+          if (!nombreFlor || !precioFlor || !imagenFlor || !disponibilidadFlor) {
+              alert("Por favor, completa todos los campos antes de agregar la flor.");
+              return;
+          }
+
+          // Agregar nueva flor al array
+          let nuevaFlor = {
+              nombre: nombreFlor,
+              precio: parseFloat(precioFlor),
+              imagen: imagenFlor,
+              disponibilidad: disponibilidadFlor
+          };
+
+          floresEmpresa.push(nuevaFlor);
+
+          // Agregar la nueva flor al select
+          let option = document.createElement("option");
+          option.value = nuevaFlor.nombre;
+          option.textContent = `${nuevaFlor.nombre} (${nuevaFlor.disponibilidad})`;
+          selectFlor.appendChild(option);
+
+          alert(`¡La flor "${nuevaFlor.nombre}" ha sido agregada exitosamente!`);
+
+          this.reset();
+      });
+  } else {
+      console.error("Error: No se encontró el formulario");
+  }
+
+  // ---------------------------- Carrusel ----------------------------
+
+  let indiceCarrusel = 0;
+  const carruselContenedor = document.getElementById("carruselContenedor");
+  const btnAnterior = document.querySelector(".carrusel-btn.anterior");
+  const btnSiguiente = document.querySelector(".carrusel-btn.siguiente");
+
+  function crearTarjetaFlor(flor) {
+      const card = document.createElement("div");
+      card.className = "carrusel-item";
+      card.innerHTML = `
+          <img src="${flor.imagen}" alt="${flor.nombre}">
+          <h3>${flor.nombre}</h3>
+          ${flor.precio ? `<p>Precio: $${flor.precio}</p>` : ""}
+          <p>Disponibilidad: ${flor.disponibilidad}</p>
+      `;
+      return card;
+  }
+
+  function renderizarCarrusel() {
+      carruselContenedor.innerHTML = ""; // Se vacía el contenido
+      floresEmpresa.forEach((flor) => {
+          const card = crearTarjetaFlor(flor);
+          carruselContenedor.appendChild(card);
+      });
+
+      // Ajustar tamaño del contenedor
+      carruselContenedor.style.display = "flex";
+      carruselContenedor.style.transition = "transform 0.5s ease-in-out";
+
+      actualizarCarrusel();
+  }
+
+  function moverCarrusel(direccion) {
+      const anchoTarjeta = carruselContenedor.children[0].offsetWidth;
+
+      if (direccion === -1 && indiceCarrusel > 0) {
+          indiceCarrusel--;
+      } else if (direccion === 1 && indiceCarrusel < floresEmpresa.length - 1) {
+          indiceCarrusel++;
+      } else {
+          return;
+      }
+
+      actualizarCarrusel(anchoTarjeta);
+  }
+
+  function actualizarCarrusel() {
+      const anchoTarjeta = carruselContenedor.children[0].offsetWidth;
+      carruselContenedor.style.transform = `translateX(${-indiceCarrusel * anchoTarjeta}px)`;
+  }
+
+  // Event Listeners para el carrusel
+  btnAnterior.addEventListener("click", () => moverCarrusel(-1));
+  btnSiguiente.addEventListener("click", () => moverCarrusel(1));
+
+  // Iniciar el carrusel
+  renderizarCarrusel();
+});
